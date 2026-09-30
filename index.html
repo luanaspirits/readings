@@ -211,6 +211,10 @@
   .readings { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
   .rd { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: opacity .3s, border-color .3s, transform .3s; }
   .rd.out { opacity: .38; }
+  .rd.mini { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 16px 22px; }
+  .rd.mini .t { flex-basis: 100%; }
+  .rd.mini .mini-text { margin: 0; flex: 1 1 260px; font-size: 15.5px; }
+  .rd.mini .btn { padding-block: 10px; }
   .rd.match { border-color: var(--gold2); box-shadow: 0 0 0 1px var(--gold2), 0 10px 40px rgba(227,194,127,.15); }
   .rd .t { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold2); }
   .rd h3 { font-family: var(--serif); font-weight: 500; font-size: 25px; color: #fff; line-height: 1.2; }
@@ -309,12 +313,12 @@
     <div class="head"><div class="eyebrow">Or shop by budget</div><h2>What feels right <em>to invest?</em></h2></div>
     <div class="budget">
       <div class="budget-row">
-        <div class="amt" id="budgetAmt">CA$600 <small>or less</small></div>
+        <div class="amt" id="budgetAmt">CA$800 <small>or less</small></div>
         <div class="bnote" id="budgetNote">All readings shown</div>
       </div>
       <label for="budget" class="visually-hidden" style="position:absolute;left:-9999px">Your budget in Canadian dollars</label>
-      <input type="range" id="budget" min="30" max="600" step="10" value="600">
-      <div class="ticks"><span>$30</span><span>$150</span><span>$300</span><span>$450</span><span>$600</span></div>
+      <input type="range" id="budget" min="55" max="800" step="5" value="800">
+      <div class="ticks"><span>$55</span><span>$250</span><span>$450</span><span>$650</span><span>$800</span></div>
     </div>
   </section>
 
@@ -323,33 +327,21 @@
     <div class="head"><div class="eyebrow">All readings</div><h2>Choose <em>your depth.</em></h2></div>
     <div class="readings">
 
-      <article class="rd" data-id="etsy" data-price="29">
-        <div class="t">Quick reading · on Etsy</div>
-        <h3>Focused Etsy Readings</h3>
-        <div class="price">from CA$29</div>
-        <p class="q">"I have one question and I want an answer fast."</p>
+      <article class="rd" data-id="pathway" data-price="777">
+        <span class="badge">A clear verdict</span>
+        <div class="t">One connection · 3 years ahead</div>
+        <h3>The Union Pathway</h3>
+        <div class="price">CA$777</div>
+        <p class="q">"Is this connection going somewhere, or is it complete?"</p>
         <ul class="marks checks">
-          <li>One focused question or topic</li>
-          <li>Quick, clear guidance from Spirit</li>
-          <li>A gentle first step if you're new to my readings</li>
+          <li>A clear connection type verdict</li>
+          <li>Their heart, and whether they're ready for union</li>
+          <li>Karmic markers vs. union markers, and what's blocking things</li>
+          <li>Your next steps, whether you lean in or let go</li>
+          <li>A bonus 3-year connection forecast</li>
         </ul>
-        <div class="meta">Delivered in writing on Etsy · fast turnaround</div>
-        <a class="btn ghost" href="https://www.etsy.com/shop/LuanaSpirits" target="_blank" rel="noopener">Visit my Etsy shop</a>
-      </article>
-
-      <article class="rd" data-id="snapshot" data-price="222">
-        <div class="t">Where things stand now</div>
-        <h3>The Union Alignment Snapshot</h3>
-        <div class="price">CA$222</div>
-        <p class="q">"Is this connection worth my energy, and what do I do next?"</p>
-        <ul class="marks checks">
-          <li>Up to 3 topics or questions</li>
-          <li>The energy on both sides of your connection, right now</li>
-          <li>What's been influencing things behind the scenes</li>
-          <li>Your next grounded, aligned step</li>
-        </ul>
-        <div class="meta">Written reading · 3 to 5 business days</div>
-        <a class="btn" href="https://v2.stan.store/LuanaSpirits/p/-union-alignment-snapshot-reading" target="_blank" rel="noopener">Book the Snapshot</a>
+        <div class="meta">PDF reading + VIP dashboard · 3 to 5 business days</div>
+        <a class="btn" href="https://readings.luanaspirits.com/pathway/">Explore the Pathway</a>
       </article>
 
       <article class="rd" data-id="blueprint" data-price="555">
@@ -367,6 +359,27 @@
         </ul>
         <div class="meta">8,000 to 12,000 word written reading · 3 to 5 days</div>
         <a class="btn" href="https://readings.luanaspirits.com/blueprint/">Explore the Blueprint</a>
+      </article>
+
+      <article class="rd" data-id="snapshot" data-price="222">
+        <div class="t">Where things stand now</div>
+        <h3>The Union Alignment Snapshot</h3>
+        <div class="price">CA$222</div>
+        <p class="q">"Is this connection worth my energy, and what do I do next?"</p>
+        <ul class="marks checks">
+          <li>Up to 3 topics or questions</li>
+          <li>The energy on both sides of your connection, right now</li>
+          <li>What's been influencing things behind the scenes</li>
+          <li>Your next grounded, aligned step</li>
+        </ul>
+        <div class="meta">Written reading · 3 to 5 business days</div>
+        <a class="btn" href="https://v2.stan.store/LuanaSpirits/p/-union-alignment-snapshot-reading" target="_blank" rel="noopener">Book the Snapshot</a>
+      </article>
+
+      <article class="rd mini" data-id="etsy" data-price="55">
+        <div class="t">Just one quick question?</div>
+        <p class="mini-text"><b>Focused Etsy readings from CA$55.</b> One question, a clear answer, fast turnaround.</p>
+        <a class="btn ghost" href="https://www.etsy.com/shop/LuanaSpirits" target="_blank" rel="noopener">Visit my Etsy shop</a>
       </article>
 
     </div>
@@ -499,6 +512,7 @@
   var R = {
     etsy: { name: 'A Focused Etsy Reading', why: 'You have one clear question and want a fast, gentle answer. It\'s also a lovely way to try my readings for the first time.' },
     snapshot: { name: 'The Union Alignment Snapshot', why: 'You want to know where things truly stand right now, whether this connection is worth your energy, and your next grounded step.' },
+    pathway: { name: 'The Union Pathway', why: 'You need a real answer about one connection: what it truly is, whether they\'re ready, and whether to lean in or let go, plus where it\'s heading over the next 3 years.' },
     blueprint: { name: 'The Union Blueprint', why: 'You\'re ready for the whole picture: a 12-month forecast, the soul-level roots of your connection, and when things shift.' }
   };
 
@@ -508,15 +522,17 @@
       ['One specific question that\'s on my mind', { etsy: 2 }],
       ['Where a connection stands right now', { snapshot: 2 }],
       ['Where my love life is heading this year', { blueprint: 2 }],
-      ['The soul-level meaning of a connection', { blueprint: 1, snapshot: 1 }] ] },
+      ['Whether a connection is actually going anywhere', { pathway: 2 }],
+      ['The soul-level meaning of a connection', { blueprint: 1, pathway: 1 }] ] },
     { q: 'How deep do you want to go?', a: [
       ['A quick, clear answer', { etsy: 2 }],
       ['A few questions, answered in depth', { snapshot: 2 }],
+      ['A clear verdict I can act on', { pathway: 2 }],
       ['Everything. I want the full picture', { blueprint: 2 }] ] },
     { q: 'Have you had a reading with me before?', a: [
       ['No, this would be my first', { etsy: 1, snapshot: 1 }],
       ['Yes, and I\'d love an update', { snapshot: 2 }],
-      ['Yes, and I\'m ready to go deeper', { blueprint: 2 }] ] }
+      ['Yes, and I\'m ready to go deeper', { blueprint: 1, pathway: 1 }] ] }
   ];
   var step = 0, score = {}, body = document.getElementById('quizBody'), bar = document.getElementById('qbar');
   function el(t, c, txt) { var e = document.createElement(t); if (c) e.className = c; if (txt) e.textContent = txt; return e; }
@@ -534,7 +550,7 @@
       body.appendChild(opts);
     } else {
       var best = 'snapshot', top = -1;
-      ['etsy', 'snapshot', 'blueprint'].forEach(function (k) { if ((score[k] || 0) > top) { top = score[k] || 0; best = k; } });
+      ['etsy', 'snapshot', 'blueprint', 'pathway'].forEach(function (k) { if ((score[k] || 0) > top) { top = score[k] || 0; best = k; } });
       var r = el('div', 'result');
       r.appendChild(el('div', 'qstep', 'Your reading'));
       r.appendChild(el('div', 'v', R[best].name));
