@@ -552,7 +552,7 @@
             <li>We book your first session right away. Your first month is your Union Blueprint, so I'll weave everything you built into it.</li>
           </ol>
           <div class="acts">
-            <a class="btn" href="#book" data-checkout>Claim my founding spot</a>
+            <a class="btn" href="https://buy.stripe.com/6oU00kekZafQ6WreatcEw0a" target="_blank" rel="noopener" data-checkout>Claim my founding spot</a>
           </div>
         </div>
         <div class="stack" style="gap:10px">
@@ -1072,7 +1072,14 @@
           <h2>Your seat on the train <em>is waiting.</em></h2>
           <div class="price-card"><span class="amt">CA$333</span><span class="sub">per month · founding rate · 3-month commitment</span></div>
           <p style="max-width:44ch;color:var(--soft)">This is launch pricing. Founding members keep CA$333/month for as long as they stay. Once all 10 spots are filled, the price goes up for new members.</p>
-          <a class="btn" href="#book" data-checkout>Join the Soul Path Membership</a>
+          <div class="stripe-embed">
+            <stripe-buy-button
+              buy-button-id="buy_btn_1UY8n9KT87JJbrnEgEWRirhj"
+              publishable-key="pk_live_51MYNIoKT87JJbrnEgJZk11EWF1RTo6Y7IoHtQrkCmznxbTSC35GkPoLUn2UVwzSSChCUDdVfNxByq10acaKzCWdC00c5ZWceQx">
+            </stripe-buy-button>
+            <noscript><a class="btn" href="https://buy.stripe.com/6oU00kekZafQ6WreatcEw0a">Join the Soul Path Membership</a></noscript>
+          </div>
+          <p style="font-size:13.5px;color:var(--soft);max-width:44ch;margin:0">By joining, you agree to my <a href="https://luanaspirits.com/terms/#membership">Terms of Service</a>, including the 3-month commitment.</p>
           <p class="sign">I can't wait to see you inspired, excited and hopeful for what's ahead, beautiful soul. 💜🌙</p>
         </div>
       </div>
@@ -1107,7 +1114,7 @@
 
 <div class="bar" id="bar" aria-hidden="true">
   <div class="l"><b>Soul Path Membership</b><span>CA$333/mo · 10 founding spots</span></div>
-  <a class="btn" href="#book" tabindex="-1" data-checkout>Join now</a>
+  <a class="btn" href="https://buy.stripe.com/6oU00kekZafQ6WreatcEw0a" target="_blank" rel="noopener" tabindex="-1" data-checkout>Join now</a>
 </div>
 
 <style>
@@ -1118,8 +1125,8 @@
 </style>
 <script>
 (function () {
-  // Paste your Stan checkout link here when it's ready. Every "Join" button will use it.
-  var CHECKOUT_URL = '';
+  // Stripe Payment Link for the founding membership. Every "Join" button uses it.
+  var CHECKOUT_URL = 'https://buy.stripe.com/6oU00kekZafQ6WreatcEw0a';
   if (CHECKOUT_URL) document.querySelectorAll('[data-checkout]').forEach(function (a) { a.href = CHECKOUT_URL; a.target = '_blank'; a.rel = 'noopener'; });
 
   function editable(el) { return el && el.closest && el.closest('input, textarea, .allow-select'); }
@@ -1152,6 +1159,19 @@
     new IntersectionObserver(function (e) { finIn = e[0].isIntersecting; upd(); }).observe(fin);
   }
 })();
+</script>
+<style>
+  .stripe-embed { width: 100%; max-width: 360px; display: flex; justify-content: center; }
+  .stripe-embed stripe-buy-button { display: block; width: 100%; }
+</style>
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<script>
+  // Backup: if the Stripe card hasn't loaded after 5 seconds, show the regular Join button instead.
+  setTimeout(function () {
+    if (window.customElements && customElements.get('stripe-buy-button')) return;
+    var box = document.querySelector('.stripe-embed');
+    if (box) box.innerHTML = '<a class="btn" href="https://buy.stripe.com/6oU00kekZafQ6WreatcEw0a" target="_blank" rel="noopener">Join the Soul Path Membership</a>';
+  }, 5000);
 </script>
 </body>
 </html>
