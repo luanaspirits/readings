@@ -1,1 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Redeem Your Session | Soul Path Membership</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Members only: redeem your monthly Soul Path session, book an extra 1:1 call or add credits.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Luana Spirits brand palette: a single, deliberate night-sky look */
+  :root {
+    color-scheme: dark;
+    --bg: #1a0a20; --plum: #2a1233; --plum2: #3d1f47; --plum3: #5b2f6b;
+    --violet: #8b5fa8; --lav: #c9b3d9; --gold: #c9a55f; --gold2: #e3c27f;
+    --text: #efe4f3; --soft: #bfaec8; --line: rgba(227,194,127,.22);
+    --card: rgba(255,255,255,.045);
+    --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'DM Mono', ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0; font-family: var(--sans); font-weight: 300; font-size: 17px; line-height: 1.7;
+    color: var(--text); background: radial-gradient(ellipse at 20% 0%, #4a2458 0%, var(--plum) 40%, var(--bg) 100%) fixed var(--bg);
+    min-height: 100vh;
+  }
+  #stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .star { position: absolute; border-radius: 50%; background: #fff; animation: tw 4s infinite ease-in-out; }
+  @keyframes tw { 0%,100% { opacity: .15 } 50% { opacity: .9 } }
+  @media (prefers-reduced-motion: reduce) { .star { animation: none; opacity: .5 } html { scroll-behavior: auto } }
+  html { scroll-behavior: smooth; }
+
+  b, strong { font-weight: 500; color: var(--gold2); }
+  em { font-family: var(--serif); font-style: italic; }
+  a { color: var(--gold2); }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--gold2); outline-offset: 3px; }
+
+  .wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding-inline: 20px; }
+  section { padding-block: 44px; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold2); }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; text-wrap: balance; margin: 0; }
+  h2 { font-size: clamp(28px, 5.4vw, 38px); line-height: 1.15; }
+  h2 em { color: var(--gold2); }
+  h3 { font-size: 21px; color: var(--gold2); line-height: 1.3; }
+  p { margin: 0; }
+  .stack { display: flex; flex-direction: column; gap: 18px; }
+  .rule { height: 2px; width: 100%; background: linear-gradient(90deg, var(--gold), var(--violet) 60%, transparent); }
+  .head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+
+  /* HERO */
+  .hero { position: relative; z-index: 1; }
+  .hero-img { position: relative; height: clamp(260px, 52vw, 460px); overflow: hidden; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 40%; display: block; }
+  .hero-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,10,32,.15) 0%, rgba(26,10,32,.35) 55%, var(--plum) 100%); }
+  .hero-text { position: relative; margin-top: clamp(-120px, -14vw, -60px); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .hero h1 { font-size: clamp(40px, 9vw, 72px); line-height: 1.02; }
+  .hero h1 em { color: var(--gold2); display: block; }
+  .tagline { font-family: var(--serif); font-style: italic; color: var(--lav); font-size: clamp(18px, 3.4vw, 22px); max-width: 32ch; line-height: 1.45; }
+  .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 4px; }
+  .pill { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; padding: 5px 12px; border-radius: 30px; background: var(--plum3); color: var(--gold2); font-variant-numeric: tabular-nums; }
+  .pill.solid { background: var(--gold); color: var(--plum); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-weight: 500; font-size: 16px; letter-spacing: .6px; color: #fff; text-decoration: none; background: linear-gradient(135deg, var(--gold), var(--violet)); border-radius: 40px; padding: 15px 30px; box-shadow: 0 8px 30px rgba(201,165,95,.25); transition: transform .2s, box-shadow .2s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(201,165,95,.35); }
+  .btn small { font-family: var(--mono); font-size: 12px; opacity: .85; font-weight: 400; }
+
+  /* VIDEO */
+  .video { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--plum2); margin-top: 30px; }
+  .video img { width: 100%; height: 100%; object-fit: cover; opacity: .45; display: block; }
+  .video .over { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 16px; }
+  .play { width: 68px; height: 68px; border-radius: 50%; border: 1.5px solid var(--gold2); display: grid; place-items: center; background: rgba(26,10,32,.5); }
+  .play::before { content: ""; border-left: 20px solid var(--gold2); border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 5px; }
+  .video .cap { font-family: var(--mono); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold2); }
+
+  /* THESIS */
+  .thesis { font-family: var(--serif); font-size: clamp(26px, 5vw, 36px); line-height: 1.3; text-align: center; color: #fff; max-width: 22ch; margin: 0 auto; text-wrap: balance; }
+  .thesis em { color: var(--gold2); }
+  .thesis::before, .thesis::after { content: "\2726"; display: block; font-family: var(--sans); font-size: 14px; color: var(--gold2); margin: 12px 0; }
+
+  /* LISTS */
+  ul.marks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  ul.marks li { position: relative; padding-left: 28px; }
+  ul.marks li::before { content: "\2726"; position: absolute; left: 0; top: 0; color: var(--gold2); font-size: 14px; line-height: 1.9; }
+  ul.checks li::before { content: "\2713"; font-size: 16px; line-height: 1.75; }
+  ul.nots li::before { content: "\00D7"; color: var(--lav); font-size: 20px; line-height: 1.4; }
+  .welcome-home { font-family: var(--serif); font-style: italic; color: var(--lav); font-size: 19px; }
+
+  /* STORY */
+  .story { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
+  .portrait { position: relative; max-width: 360px; width: 100%; margin: 0 auto; }
+  .portrait img { width: 100%; border-radius: 200px 200px 18px 18px; display: block; border: 1px solid var(--line); }
+  .portrait figcaption { text-align: center; font-family: var(--serif); font-style: italic; color: var(--soft); font-size: 15px; margin-top: 10px; }
+  @media (min-width: 720px) { .story { grid-template-columns: 300px 1fr; } .portrait { position: sticky; top: 24px; } }
+  .pull { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1.45; color: #fff; border-left: 2px solid var(--gold2); padding-left: 18px; }
+
+  /* COACHING VS READING */
+  .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .box .t { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold2); }
+  .box .v { font-family: var(--serif); font-size: 21px; color: #fff; line-height: 1.3; }
+  .box .d { font-size: 15.5px; color: var(--soft); }
+  .box.this { background: linear-gradient(160deg, var(--plum2), rgba(91,47,107,.35)); border-color: rgba(227,194,127,.45); }
+
+  .together { display: flex; flex-direction: column; gap: 20px; }
+  .together .item { display: flex; flex-direction: column; gap: 4px; }
+
+  .hermit { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+  .hermit img { width: 100%; border-radius: 8px; display: block; box-shadow: 0 0 30px rgba(227,194,127,.25); }
+  .hermit p { font-size: 16px; color: var(--soft); }
+  .hermit .t { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold2); margin-bottom: 6px; }
+
+  /* RECEIVE */
+  .receive { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .rc { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; padding: 16px 18px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+  .rc .ic { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--plum3); color: var(--gold2); font-size: 16px; }
+  .rc .v { font-family: var(--serif); font-size: 19px; color: #fff; line-height: 1.3; }
+  .rc .d { font-size: 15px; color: var(--soft); }
+
+  .note { border-left: 3px solid var(--violet); background: rgba(139,95,168,.14); padding: 20px 22px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .note .t { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--lav); }
+
+  .fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .fit .box { gap: 14px; }
+
+  /* TESTIMONIALS */
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .q { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
+  .q p { font-family: var(--serif); font-style: italic; font-size: 17.5px; line-height: 1.55; color: #fff; }
+  .q p::before { content: "\201C"; font-size: 40px; line-height: 0; vertical-align: -14px; color: var(--gold2); margin-right: 4px; }
+  .q cite { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold2); }
+
+  /* STEPS */
+  ol.steps { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0; counter-reset: s; position: relative; }
+  ol.steps li { counter-increment: s; position: relative; padding: 0 0 22px 56px; min-height: 40px; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-size: 18px; color: var(--plum); background: var(--gold2); }
+  ol.steps li:not(:last-child)::after { content: ""; position: absolute; left: 18px; top: 42px; bottom: 4px; width: 2px; background: linear-gradient(var(--gold2), var(--violet)); opacity: .5; }
+  ol.steps .v { font-family: var(--serif); font-size: 19px; color: #fff; line-height: 1.35; padding-top: 5px; }
+
+  .know { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .know div { padding: 14px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 150px 1fr; gap: 14px; }
+  .know .k { font-family: var(--mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold2); padding-top: 4px; }
+  .know .val { font-size: 16px; }
+  @media (max-width: 520px) { .know div { grid-template-columns: 1fr; gap: 2px; } }
+  .credit { background: linear-gradient(135deg, rgba(201,165,95,.18), rgba(139,95,168,.18)); border: 1px solid rgba(227,194,127,.4); border-radius: 16px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+  .credit .v { font-family: var(--serif); font-size: 21px; color: #fff; }
+  .credit .v em { color: var(--gold2); }
+
+  /* FINAL */
+  .final { position: relative; text-align: center; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); }
+  .final img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .38; }
+  .final .inner { position: relative; padding: 52px 22px; display: flex; flex-direction: column; align-items: center; gap: 18px; background: linear-gradient(180deg, rgba(26,10,32,.3), rgba(26,10,32,.75)); }
+  .final h2 { max-width: 18ch; }
+  .final .sign { font-family: var(--serif); font-style: italic; color: var(--lav); font-size: 19px; }
+
+  /* FOOTER */
+  footer { position: relative; z-index: 1; text-align: center; padding-block: 50px 110px; color: var(--soft); font-size: 14px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  footer .sig { font-family: var(--serif); font-size: 26px; color: var(--gold2); }
+  footer .role { font-family: var(--mono); font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; }
+  footer .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+  footer .links a { text-decoration: none; }
+  footer .links a:hover { text-decoration: underline; }
+  footer .email { user-select: all; color: var(--gold2); }
+  footer .legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; font-size: 13px; }
+  footer .legal a { color: var(--soft); }
+  footer .fine { font-size: 12.5px; max-width: 60ch; line-height: 1.6; opacity: .85; }
+
+  /* STICKY BOOK BAR (mobile) */
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(26,10,32,.9); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; transform: translateY(110%); transition: transform .35s ease; }
+  .bar.show { transform: none; }
+  .bar .l { display: flex; flex-direction: column; line-height: 1.25; }
+  .bar .l b { font-family: var(--serif); font-weight: 500; font-size: 16px; color: #fff; }
+  .bar .l span { font-family: var(--mono); font-size: 11.5px; color: var(--gold2); font-variant-numeric: tabular-nums; }
+  .bar .btn { padding: 11px 20px; font-size: 14.5px; box-shadow: none; flex: 0 0 auto; }
+  @media (min-width: 900px) { .bar { left: auto; right: 24px; bottom: 24px; border-radius: 40px; border: 1px solid var(--line); padding: 8px 8px 8px 22px; } }
+  @media (prefers-reduced-motion: reduce) { .bar { transition: none; } .btn { transition: none; } }
+</style>
+<style>
+  .btn.ghost { background: transparent; border: 1px solid var(--gold2); color: var(--gold2); box-shadow: none; }
+  .btn.ghost:hover { background: rgba(227,194,127,.1); }
+  .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  /* quarter path */
+  .year { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding-top: 34px; }
+  .year::before { content: ""; position: absolute; left: 12%; right: 12%; top: 13px; height: 2px; background: linear-gradient(90deg, var(--gold2), var(--violet), var(--lav)); }
+  .qtr { position: relative; text-align: center; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+  .qtr::before { content: ""; position: absolute; top: -28px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold2); box-shadow: 0 0 14px var(--gold2); }
+  .qtr:nth-child(3)::before, .qtr:nth-child(4)::before { background: var(--lav); box-shadow: 0 0 14px var(--lav); }
+  .qtr .n { font-family: var(--mono); font-size: 11.5px; letter-spacing: 2px; color: var(--gold2); text-transform: uppercase; }
+  .qtr .v { font-family: var(--serif); font-size: 17px; color: #fff; line-height: 1.3; }
+  @media (max-width: 560px) {
+    .year { grid-template-columns: 1fr; padding-top: 0; padding-left: 30px; gap: 18px; }
+    .year::before { left: 6px; right: auto; top: 8px; bottom: 8px; width: 2px; height: auto; background: linear-gradient(180deg, var(--gold2), var(--violet), var(--lav)); }
+    .qtr { text-align: left; align-items: flex-start; }
+    .qtr::before { top: 4px; left: -30px; }
+  }
+
+  .elements { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .el { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+  .el .ic { font-size: 22px; line-height: 1; }
+  .el .v { font-family: var(--serif); font-size: 20px; color: #fff; line-height: 1.3; }
+  .el .d { font-size: 15.5px; color: var(--soft); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 14.5px; padding: 7px 13px; border-radius: 30px; border: 1px solid var(--line); background: rgba(26,10,32,.45); color: var(--text); }
+
+  .breathe { text-align: center; font-family: var(--serif); font-size: clamp(22px, 4.4vw, 30px); line-height: 1.45; color: #fff; }
+  .breathe em { color: var(--gold2); }
+  .breathe small { display: block; font-family: var(--mono); font-style: normal; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--lav); margin-bottom: 10px; }
+
+  .quotes.many { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .price-card { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+  .price-card .amt { font-family: var(--serif); font-size: 44px; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-card .sub { font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; color: var(--soft); text-transform: uppercase; }
+
+  /* photo hero */
+  .me-hero { position: relative; z-index: 1; padding-block: 36px 10px; overflow: hidden; }
+  .me-hero .bgimg { position: absolute; inset: 0; z-index: -1; }
+  .me-hero .bgimg img { width: 100%; height: 100%; object-fit: cover; opacity: .22; }
+  .me-hero .bgimg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,10,32,.2), var(--plum) 96%); }
+  .me-grid { display: grid; grid-template-columns: 1fr; gap: 12px; align-items: end; }
+  .me-text { display: flex; flex-direction: column; gap: 14px; text-align: center; align-items: center; order: 2; }
+  .me-text h1 { font-size: clamp(44px, 9vw, 76px); line-height: 1.02; }
+  .me-text h1 em { color: var(--gold2); display: block; }
+  .me-photo { position: relative; margin: 0 auto; width: min(80%, 380px); order: 1; }
+  .me-photo::before, .side-photo::before { content: ""; position: absolute; left: 50%; top: 42%; width: 118%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(227,194,127,.30) 0%, rgba(139,95,168,.26) 42%, transparent 70%); z-index: -1; }
+  .me-photo img, .side-photo img { width: 100%; height: auto; display: block; -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent); mask-image: linear-gradient(180deg, #000 80%, transparent); }
+  @media (min-width: 820px) {
+    .me-grid { grid-template-columns: 1.1fr .9fr; gap: 30px; }
+    .me-text { order: 1; text-align: left; align-items: flex-start; padding-bottom: 60px; }
+    .me-text .facts { justify-content: flex-start; }
+    .me-photo { order: 2; width: 100%; max-width: 430px; }
+  }
+
+  /* text beside a cutout */
+  .split { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center; }
+  .side-photo { position: relative; z-index: 0; width: min(62%, 280px); margin: 0 auto; }
+  @media (min-width: 760px) {
+    .split { grid-template-columns: 260px 1fr; gap: 34px; }
+    .split.rev { grid-template-columns: 1fr 260px; }
+    .split.rev .side-photo { order: 2; }
+    .side-photo { width: 100%; }
+  }
+
+  /* credentials */
+  .certs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .certs figure { margin: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+  .certs img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,.35); background: #fff; }
+  .certs figcaption { font-family: var(--mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold2); line-height: 1.5; }
+  @media (max-width: 560px) { .certs { grid-template-columns: 1fr; max-width: 330px; margin: 0 auto; } }
+
+  /* final with photo */
+  .final .inner.final-grid { display: grid; grid-template-columns: 1fr; align-items: end; gap: 10px; }
+  .final-grid .pic { width: min(70%, 300px); margin: 0 auto; display: block; order: 2; }
+  .final-grid .pic img { position: static; width: 100%; height: auto; opacity: 1; display: block; }
+  @media (min-width: 780px) { .final .inner.final-grid { grid-template-columns: .8fr 1.2fr; } .final-grid .pic { order: 0; width: 100%; padding-left: 20px; } }
+</style>
+<style>
+  .wip { position: relative; z-index: 2; text-align: center; font-family: var(--mono); font-size: 12px; letter-spacing: 1px; color: var(--plum); background: var(--gold2); padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .wip b { color: var(--plum); }
+  .wip .ph { color: var(--plum); border-color: var(--plum); }
+  .ph { display: inline-block; font-family: var(--mono); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--lav); border: 1px dashed var(--lav); border-radius: 6px; padding: 2px 8px; }
+  .compare .box .v { font-variant-numeric: tabular-nums; }
+  .fit ul.marks { gap: 10px; }
+  .wrap { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+</style>
+<style>
+  .box .btn { margin-top: auto; align-self: flex-start; }
+  .box { gap: 10px; }
+  #addons .compare { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  #tops { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+</style>
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div>
+<script>
+  // ===== PASTE YOUR STAN LINKS HERE =====
+  window.REDEEM_LINKS = {
+    call:  '',   // Extra 1:1 coaching call, CA$222
+    top3:  '',   // +3 credits, CA$49
+    top12: ''    // +12 credits, CA$177
+  };
+</script>
+<div class="wip" id="wip">Framework preview · Stan links are placeholders · not shared with members yet</div>
+<header class="wrap" style="padding-top:44px;padding-bottom:8px;text-align:center">
+  <div class="stack" style="gap:14px;align-items:center">
+    <div class="eyebrow">Members only · Soul Path Membership</div>
+    <h1 style="font-size:clamp(34px,7vw,52px);line-height:1.1">Redeem your <em style="color:var(--gold2)">session</em></h1>
+    <p style="color:var(--soft);max-width:560px">Your private page for every month: build your session, swap it for a coaching call, redeem a seasonal reading, or book extra time with me.</p>
+    <div class="facts">
+      <span class="pill solid">24 credits / month</span>
+      <span class="pill">Rollover up to 15</span>
+      <span class="pill">Delivered within 3 days</span>
+    </div>
+    <div class="cta-row"><a class="btn" href="#builder">Build this month's session</a><a class="btn ghost" href="#addons">Extra call or credits</a></div>
+  </div>
+</header>
+<main class="wrap">
+  <section>
+    <div class="stack">
+      <div class="credit">
+        <span class="t" style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2)">Your first month</span>
+        <span class="v">Month 1 is always your <em>Union Blueprint.</em></span>
+        <span>No builder needed this month. Your Blueprint is 8,000 to 12,000 words with a 12-month relationship forecast, read in quarters. Choose up to 5 focus areas and up to 4 of your own questions, or leave it open to Spirit. Your welcome email has everything you need.</span>
+        <div class="acts" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a class="btn" id="bpBtn" href="#">Send my Blueprint intake</a></div>
+      </div>
+      <p class="hint">From month 2, use the builder below.</p>
+    </div>
+  </section>
+  <style>
+    .worth { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 460px; }
+    .worth th { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold2); text-align: left; font-weight: 400; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+    .worth td { padding: 10px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; vertical-align: top; }
+    .worth td small { color: var(--soft); font-size: 13px; }
+    .worth tr.hi td { color: #fff; background: rgba(227,194,127,.08); }
+    .worth tr.hi td:last-child { color: var(--gold2); font-weight: 500; }
+  </style>
+  <!-- ===== READING BUILDER ===== -->
+  <style>
+    .bld { display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; }
+    @media (min-width: 900px) { .bld { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); margin-inline: calc(50% - min(540px, 50vw - 24px)); } .bld-out { position: sticky; top: 20px; } }
+    .bld-in { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+    .step { display: flex; flex-direction: column; gap: 10px; }
+    .step-h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .step-h .t { font-family: var(--mono); font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold2); }
+    .step-h .c { font-family: var(--mono); font-size: 11px; color: var(--soft); letter-spacing: 1px; }
+    .intro { background: linear-gradient(160deg, var(--plum2), rgba(91,47,107,.35)); border: 1px solid rgba(227,194,127,.45); border-radius: 20px; padding: 22px 20px; display: flex; flex-direction: column; gap: 16px; }
+    .intro h3 { font-size: 24px; color: #fff; }
+    .intro .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .intro label { display: flex; flex-direction: column; gap: 6px; font-family: var(--serif); font-size: 17px; color: #fff; }
+    .intro label small { font-family: var(--sans); font-size: 13px; color: var(--soft); }
+    .bld.locked .after-start { display: none; }
+    .bld:not(.locked) #startBtn { display: none; }
+    .modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    @media (max-width: 560px) { .modes { grid-template-columns: 1fr; } }
+    .mode { text-align: left; font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+    .mode b { font-family: var(--serif); font-weight: 500; font-size: 16.5px; color: #fff; }
+    .mode span { font-size: 13.5px; color: var(--soft); line-height: 1.45; }
+    .mode[aria-pressed="true"] { background: linear-gradient(160deg, var(--plum2), rgba(91,47,107,.5)); border-color: var(--gold2); }
+    .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .opt { font: inherit; font-size: 14.5px; color: var(--text); background: rgba(26,10,32,.45); border: 1px solid var(--line); border-radius: 30px; padding: 7px 13px; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; transition: background .2s, border-color .2s, transform .15s; }
+    .opt:active { transform: scale(.97); }
+    .opt .cr { font-family: var(--mono); font-size: 11px; color: var(--gold2); white-space: nowrap; }
+    .opt[aria-pressed="true"] { background: var(--gold); border-color: var(--gold2); color: var(--plum); }
+    .opt[aria-pressed="true"] .cr { color: var(--plum); }
+    .opt:disabled { opacity: .38; cursor: not-allowed; }
+    .opt:focus-visible, .mode:focus-visible, .fld:focus-visible, .mini:focus-visible { outline: 2px solid var(--gold2); outline-offset: 2px; }
+    .heal { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+    .heal .opt, .fcs .opt { border-radius: 14px; flex-direction: column; align-items: flex-start; text-align: left; gap: 2px; padding: 10px 14px; }
+    .heal .opt small, .fcs .opt small { font-size: 13px; color: var(--soft); line-height: 1.4; }
+    .heal .opt[aria-pressed="true"] small, .fcs .opt[aria-pressed="true"] small { color: var(--plum); }
+    .fcs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    @media (max-width: 480px) { .fcs { grid-template-columns: 1fr; } }
+    .fld { font: inherit; font-size: 15.5px; color: var(--text); background: rgba(26,10,32,.6); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; width: 100%; }
+    .fld::placeholder { color: var(--soft); opacity: .7; }
+    select.fld { width: auto; }
+    .qrow { display: flex; gap: 8px; }
+    .qrow .fld { flex: 1; min-width: 0; }
+    .mini { font: inherit; font-size: 13.5px; color: var(--gold2); background: transparent; border: 1px solid var(--gold2); border-radius: 30px; padding: 7px 14px; cursor: pointer; white-space: nowrap; }
+    .mini:disabled { opacity: .4; cursor: not-allowed; }
+    .carry { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 14.5px; color: var(--soft); }
+    .hint { font-size: 13.5px; color: var(--soft); }
+    .bld[data-mode="spirit"] .only-build, .bld[data-mode="seasonal"] .only-build, .bld[data-mode="call"] .only-build { display: none; }
+    .credit-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .credit-key div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; }
+    .credit-key b { font-family: var(--serif); font-weight: 500; color: #fff; font-size: 17px; }
+    .credit-key span { font-size: 13.5px; color: var(--soft); }
+    .credit-key .n { font-family: var(--mono); font-size: 11.5px; color: var(--gold2); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* the map */
+    .bld-out { min-width: 0; }
+    .map { position: relative; border-radius: 22px; border: 1px solid rgba(227,194,127,.45); background: linear-gradient(170deg, var(--plum2), var(--bg) 85%); padding: 22px 20px; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+    .map::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 85% 0%, rgba(227,194,127,.18), transparent 50%); pointer-events: none; }
+    .map > * { position: relative; }
+    .map .eyebrow { font-size: 11px; }
+    .map h3 { font-size: 25px; color: #fff; }
+    .map .for { font-family: var(--serif); font-style: italic; color: var(--lav); font-size: 16px; }
+    .depth { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .depth .big { font-family: var(--serif); font-size: 46px; line-height: 1; color: var(--gold2); font-variant-numeric: tabular-nums; }
+    .depth .lbl { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--soft); line-height: 1.5; }
+    .meter { display: flex; flex-wrap: wrap; gap: 5px; max-width: 230px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid var(--gold2); transition: background .25s, box-shadow .25s; }
+    .dot.on { background: var(--gold2); box-shadow: 0 0 8px var(--gold2); }
+    .dot.carry { border-style: dashed; border-color: var(--lav); }
+    .dot.carry.on { background: var(--lav); box-shadow: 0 0 8px var(--lav); }
+    .secs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; counter-reset: sec; }
+    .sec { counter-increment: sec; display: grid; grid-template-columns: 30px 1fr; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--line); animation: rise .45s ease both; }
+    .sec::before { content: counter(sec); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-size: 15px; color: var(--plum); background: var(--gold2); }
+    .sec.heal-s::before { content: "\2726"; background: var(--lav); }
+    .sec .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold2); }
+    .sec.heal-s .k { color: var(--lav); }
+    .sec .v { font-family: var(--serif); font-size: 17px; color: #fff; line-height: 1.35; }
+    .sec ul { margin: 6px 0 0; padding-left: 16px; font-size: 13.5px; color: var(--soft); line-height: 1.55; }
+    .sec .q { font-size: 14px; color: var(--lav); font-style: italic; font-family: var(--serif); margin-top: 6px; }
+    .empty { font-size: 14.5px; color: var(--soft); border: 1px dashed var(--line); border-radius: 14px; padding: 18px 14px; text-align: center; font-family: var(--serif); font-style: italic; }
+    .vbars { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; }
+    .vbars .vt { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--soft); }
+    .vrow { display: grid; grid-template-columns: 118px 1fr 34px; gap: 10px; align-items: center; font-size: 13px; color: var(--text); }
+    .vrow .track { height: 8px; border-radius: 8px; background: rgba(255,255,255,.07); overflow: hidden; }
+    .vrow .fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--gold), var(--gold2)); transition: width .4s ease; }
+    .vrow.alt .fill { background: linear-gradient(90deg, var(--violet), var(--lav)); }
+    .vrow .num { font-family: var(--mono); font-size: 12px; color: var(--gold2); text-align: right; font-variant-numeric: tabular-nums; }
+    .map-foot { font-size: 12.5px; color: var(--soft); }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .sec { animation: none; } .opt, .dot, .vrow .fill { transition: none; } }
+  </style>
+
+  <style>
+    .only-call, .only-seasonal { display: none; }
+    .bld[data-mode="call"] .only-call.after-start, .bld[data-mode="seasonal"] .only-seasonal.after-start { display: flex; }
+    .bld.locked .only-call, .bld.locked .only-seasonal { display: none !important; }
+    .callnote { border: 1px solid rgba(201,179,217,.5); background: rgba(139,95,168,.16); border-radius: 14px; padding: 14px 16px; font-size: 14.5px; line-height: 1.55; display: flex; flex-direction: column; gap: 6px; }
+    .callnote b { color: var(--lav); font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 400; }
+    .incl { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--plum); background: var(--gold2); border-radius: 30px; padding: 3px 10px; }
+    textarea.fld { resize: vertical; min-height: 84px; line-height: 1.5; }
+    .send { margin-top: 6px; border-radius: 22px; border: 1px solid rgba(227,194,127,.45); background: linear-gradient(160deg, rgba(201,165,95,.16), rgba(139,95,168,.2)); padding: 24px 20px; display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 820px) { .send { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+    .send h3 { font-size: 24px; color: #fff; }
+    .send ol { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .send .acts { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .send textarea { font-family: var(--mono); font-size: 12.5px; min-height: 180px; }
+    .send .ok { font-family: var(--mono); font-size: 12px; color: var(--gold2); min-height: 1em; }
+    .tgroup { display: flex; flex-direction: column; gap: 6px; }
+    .tgroup .gl { font-family: var(--serif); font-style: italic; color: var(--lav); font-size: 15px; }
+    .hgl { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--lav); margin-top: 4px; }
+    .heal .opt.sig { grid-column: 1 / -1; background: linear-gradient(160deg, var(--plum2), rgba(91,47,107,.5)); border-color: rgba(227,194,127,.5); }
+    .heal .opt.sig[aria-pressed="true"] { background: var(--gold); }
+    .fcs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    @media (max-width: 640px) { .fcs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .faq { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
+    .faq summary { cursor: pointer; list-style: none; padding: 14px 32px 14px 0; position: relative; font-family: var(--serif); font-size: 19px; color: #fff; line-height: 1.35; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 4px; top: 12px; font-family: var(--sans); font-size: 22px; color: var(--gold2); }
+    .faq details[open] summary::after { content: "\2212"; }
+    .faq summary:focus-visible { outline: 2px solid var(--gold2); outline-offset: 2px; }
+    .faq details p { padding: 0 0 16px; color: var(--soft); max-width: 65ch; }
+  </style>
+  <section id="builder" style="padding-top:20px">
+    <div class="head"><div class="eyebrow">Month 2 onward</div><h2>Build this month's <em>session.</em></h2></div>
+    <div class="stack" style="gap:20px">
+      <p>You have <b>24 fresh credits</b> this billing month, plus anything rolled over. Build your session below, then send it to me. One intentional session a month.</p>
+      <div class="credit-key">
+        <div><span class="n">1 credit</span><b>A question</b><span>One angle, read in depth</span></div>
+        <div><span class="n">3 credits</span><b>A topic</b><span>One focus, read from 3 angles</span></div>
+        <div><span class="n">3 to 18 credits</span><b>A forecast</b><span>30 days to 6 months ahead</span></div>
+        <div><span class="n">6 to 9 credits</span><b>Energy healing</b><span>With a written healing summary</span></div>
+      </div>
+
+      <div class="bld locked" id="bld" data-mode="build">
+        <div class="bld-in">
+
+          <div class="intro">
+            <h3>First, who is this session for?</h3>
+            <div class="pair">
+              <label for="me">What's your first name?<input class="fld" id="me" type="text" maxlength="24" placeholder="Your name" autocomplete="off"></label>
+              <label for="poi">Who's on your heart? <small>Their first name, or leave it blank</small><input class="fld" id="poi" type="text" maxlength="24" placeholder="Their name" autocomplete="off"></label>
+            </div>
+            <div><button type="button" class="btn" id="startBtn">Start building my session</button></div>
+          </div>
+
+          <div class="step after-start">
+            <div class="step-h"><span class="t">How do you want to use this month?</span></div>
+            <div class="modes" role="group" aria-label="Session type">
+              <button type="button" class="mode" data-mode="build" aria-pressed="true"><b>Build my reading</b><span>Topics, questions, a forecast, healing</span></button>
+              <button type="button" class="mode" data-mode="call" aria-pressed="false"><b>Swap for a coaching call</b><span>60 minutes live with me, from month 2</span></button>
+              <button type="button" class="mode" data-mode="seasonal" aria-pressed="false"><b>Seasonal reading</b><span>Within 60 days of a launch closing</span></button>
+              <button type="button" class="mode" data-mode="spirit" aria-pressed="false"><b>Open to Spirit</b><span>Your guides lead all 24 credits</span></button>
+            </div>
+          </div>
+
+          <div class="step after-start only-call">
+            <div class="callnote"><b>Please read: a coaching call is not a live reading</b>Calls are private 1:1 coaching, not a back-and-forth psychic reading where you ask me question after question. The one exception is a live healing: intuitive messages come through while I work, and I share them with you at the end. For guidance from Spirit on your questions, build a reading instead.</div>
+          </div>
+          <div class="step after-start only-call">
+            <div class="step-h"><span class="t">Choose one focus for your call</span><span class="c">This month's 24 fresh credits</span></div>
+            <div class="heal" id="cfocus" role="group" aria-label="Call focus"></div>
+          </div>
+          <div class="step after-start only-call" id="cHealStep">
+            <div class="step-h"><span class="t">Choose your live healing</span><span class="c">Usually takes most or all of the call</span></div>
+            <div class="opts" id="cheals" role="group" aria-label="Live healing"></div>
+          </div>
+          <div class="step after-start only-call">
+            <div class="step-h"><label class="t" for="cIntent">What would you love to bring to the call?</label><span class="c">Optional</span></div>
+            <textarea class="fld" id="cIntent" maxlength="400" placeholder="e.g. I keep falling back into waiting on him, and I want a plan to move forward"></textarea>
+          </div>
+
+          <div class="step after-start only-seasonal">
+            <div class="callnote" style="border-color:rgba(227,194,127,.5);background:rgba(201,165,95,.12)"><b style="color:var(--gold2)">Included in your membership</b>When a seasonal reading is live, you can redeem it in place of that month's session at no extra cost. It's longer and deeper than a regular month, and it sells on its own for CA$444 to CA$555. Redeem it up to 60 days after the public launch closes. I'll give members about a month's heads-up before each one.</div>
+          </div>
+          <div class="step after-start only-seasonal">
+            <div class="step-h"><span class="t">Past and upcoming seasonal readings</span></div>
+            <div class="heal" id="seasons" role="group" aria-label="Seasonal readings"></div>
+          </div>
+
+          <div class="step after-start only-build">
+            <div class="step-h"><span class="t">Your credits this month</span><span class="c" id="credLeft"></span></div>
+            <div class="carry">
+              <span>24 fresh credits</span>
+              <label for="carry">+ rolled over <small>(see your dashboard)</small>:</label>
+              <select class="fld" id="carry">
+                <option value="0">0</option><option value="3">3</option><option value="6">6</option><option value="9">9</option><option value="12">12</option><option value="15">15</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="step after-start only-build">
+            <div class="step-h"><span class="t">Need more room this month?</span><span class="c">Optional top-up</span></div>
+            <div class="fcs" id="tops" role="group" aria-label="Credit top-up"></div>
+            <span class="hint">A top-up is used in this session only. You'll buy it when you send your session.</span>
+          </div>
+
+          <div class="step after-start only-build">
+            <div class="step-h"><span class="t">Reading topics</span><span class="c">3 credits each</span></div>
+            <div id="topics" class="stack" style="gap:14px" role="group" aria-label="Reading topics"></div>
+          </div>
+
+          <div class="step after-start only-build">
+            <div class="step-h"><span class="t">Energy forecast</span><span class="c">Choose a length</span></div>
+            <div class="fcs" id="fcs" role="group" aria-label="Energy forecast"></div>
+          </div>
+
+          <div class="step after-start only-build">
+            <div class="step-h"><span class="t">Energy healing</span><span class="c">6 to 24 credits</span></div>
+            <div class="heal" id="heals" role="group" aria-label="Energy healing"></div>
+          </div>
+
+          <div class="step after-start only-build">
+            <div class="step-h"><label class="t" for="qIn">Your own questions</label><span class="c" id="qCount"></span></div>
+            <div class="qrow">
+              <input class="fld" id="qIn" type="text" maxlength="140" placeholder="Type a question, then add it" autocomplete="off">
+              <button type="button" class="mini" id="qAdd">Add</button>
+            </div>
+            <span class="hint">Up to 5 questions, 1 credit each.</span>
+          </div>
+
+          <div class="after-start"><button type="button" class="mini" id="reset">Start over</button></div>
+        </div>
+
+        <div class="bld-out" aria-live="polite">
+          <div class="map">
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span class="eyebrow">Reading Map · <span id="month"></span></span>
+              <h3 id="mapTitle">Your Session</h3>
+              <span class="for" id="mapFor"></span>
+            </div>
+            <div class="depth">
+              <span class="big" id="big">0</span>
+              <span class="lbl" id="bigLbl">credits of depth<br>in your session</span>
+              <div class="meter" id="meter" aria-hidden="true"></div>
+            </div>
+            <ol class="secs" id="secs"></ol>
+            <div class="vbars" id="vbars"></div>
+            <p class="map-foot" id="mapFoot"></p>
+          </div>
+        </div>
+      </div>
+      <p class="hint">Credits are redeemed in one session each billing month. A fully unused month rolls over up to 15 credits, for 90 days.</p>
+      <div class="send" id="send">
+        <div class="stack" style="gap:14px">
+          <span class="eyebrow">Ready?</span>
+          <h3>Send me your session.</h3>
+          <ol>
+            <li id="topStep" hidden>Buy your top-up first: <a id="topLink" href="#addons">get my credits</a></li>
+            <li>Copy your session, or email it straight to me.</li>
+            <li>I'll confirm by email and deliver your written reading within 3 days. Coaching calls get a booking link.</li>
+          </ol>
+          <p class="hint">One session per billing month. Send it before your next billing date, or your credits roll into the next cycle (up to 15, for 90 days).</p>
+        </div>
+        <div class="stack" style="gap:10px">
+          <label class="t" for="sumTxt" style="font-family:var(--mono);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2)">Your session</label>
+          <textarea class="fld" id="sumTxt" readonly></textarea>
+          <div class="acts">
+            <button type="button" class="mini" id="copyBtn">Copy my session</button>
+            <a class="mini" id="mailBtn" href="mailto:luana@luanaspirits.com" style="text-decoration:none">Email it to Luana</a>
+            <span class="ok" id="copyOk" role="status"></span>
+          </div>
+          <span class="hint">Or paste it into an email to <span class="email allow-select" style="user-select:all;color:var(--gold2)">luana@luanaspirits.com</span> with the subject <b>MY SOUL PATH SESSION</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function () {
+    var BASE = 24, SEASONAL = 46, QMAX = 5;
+    var TOPS = [ { n: 0, l: 'No top-up', p: '' }, { n: 3, l: '+3 credits', p: 'CA$49', d: 'One more topic', link: 'top3' }, { n: 12, l: '+12 credits', p: 'CA$177', d: 'Half a month more', link: 'top12' } ];
+    var C = { topic: 3, q: 1 };
+    var FC = [ { d: 30, c: 3, l: '30-day' }, { d: 60, c: 6, l: '60-day' }, { d: 90, c: 9, l: '90-day' }, { d: 180, c: 18, l: '6-month' } ];
+    function T(id, icon, label, t, a) { return { id: id, icon: icon, label: label, t: t, a: a }; }
+    var GROUPS = [
+      { g: 'The connection', items: [
+        T('clarity', '🔮', 'Connection clarity', function (n) { return n ? 'What is really happening with ' + n : 'What is really happening in this connection'; }, ['The true nature of this bond', 'Where it stands right now', 'What it needs to move forward']),
+        T('feel', '💗', 'How they truly feel', function (n) { return 'How ' + (n ? n + ' truly feels' : 'they truly feel'); }, ['Their feelings right now', 'What they are not saying', 'What is shifting in their heart']),
+        T('contract', '🧿', 'Soul contract', function (n) { return n ? 'Your soul contract with ' + n : 'Your soul contract'; }, ['Why this soul came into your life', 'The lessons you agreed to', 'Where the contract is leading']),
+        T('pastlife', '🌙', 'Past-life history', function (n) { return n ? 'Your past lives with ' + n : 'Past lives shaping your love life'; }, ['The past life that echoes now', 'The karmic pattern repeating', 'What is ready to be released']),
+        T('third', '👤', 'Third parties', function (n) { return n ? 'Third parties around ' + n : 'Third parties and outside influences'; }, ['Who else is in the energy', 'How it affects the connection', 'Where to put your focus']),
+        T('comms', '💬', 'Communication and reconnection', function (n) { return n ? 'Communication and reconnection with ' + n : 'Communication and reconnection'; }, ['The energy around contact', 'What is blocking communication', 'How to approach it from your power']),
+        T('runner', '🏃‍♀️', 'Runner and chaser dynamics', function (n) { return n ? 'The runner and chaser dynamic with ' + n : 'Runner and chaser dynamics'; }, ['Why the push and pull is happening', 'Your role in the dynamic', 'How to step out of the chase'])
+      ]},
+      { g: 'Your healing', items: [
+        T('blocks', '🌀', 'Triggers and blocks', function () { return 'The triggers and blocks being stirred up in you'; }, ['The trigger underneath the trigger', 'The block in your energy right now', 'How to move through it']),
+        T('inner', '🧸', 'Inner child', function () { return 'What your inner child needs'; }, ['What your inner child is feeling', 'The wound asking for attention', 'How to reparent yourself this month']),
+        T('worth', '🌟', 'Self-worth and personal power', function () { return 'Your self-worth and personal power'; }, ['Where you give your power away', 'What your higher self sees in you', 'Your next step into your worth']),
+        T('waiting', '⏳', 'Waiting energy', function (n) { return n ? 'Releasing the waiting energy around ' + n : 'Releasing waiting energy'; }, ['Where you are waiting instead of living', 'What the waiting is costing you', 'How to step into union energy now']),
+        T('attach', '🔗', 'Attachment patterns', function () { return 'Your attachment patterns in love'; }, ['The pattern you keep repeating', 'Where it began', 'What secure love looks like for you']),
+        T('traps', '🪤', 'Spiritual traps and rigid rules', function () { return 'The spiritual traps and rules keeping you stuck'; }, ['The belief that is limiting you', 'What your guides say instead', 'Your aligned way forward'])
+      ]},
+      { g: 'Calling in love', items: [
+        T('future', '💞', 'Your future partner’s energy', function () { return 'The energy of your future partner'; }, ['Who they are energetically', 'Where they are right now', 'How you will recognize them']),
+        T('blocklove', '🚪', 'What’s blocking love', function () { return 'What is blocking love from arriving'; }, ['The block in your field', 'Where it came from', 'How to clear the way']),
+        T('magnet', '✨', 'Becoming magnetic', function () { return 'Becoming magnetic to aligned love'; }, ['What you are radiating now', 'What to embody', 'Your magnetic next step']),
+        T('catalyst', '🔥', 'Catalyst or true union?', function (n) { return n ? 'Is ' + n + ' a catalyst or your true union?' : 'Catalyst or true union?'; }, ['The purpose of this connection', 'The signs in the energy', 'What your soul is asking of you'])
+      ]},
+      { g: 'Your spirit', items: [
+        T('team', '🕊️', 'Messages from your spirit team', function () { return 'Messages from your spirit team'; }, ['Who is guiding you right now', 'What they want you to know', 'The sign to watch for']),
+        T('higher', '☀️', 'Higher self channelling', function () { return 'A message from your higher self'; }, ['What your higher self sees', 'What it wants you to release', 'What it wants you to choose']),
+        T('intuition', '👁️', 'Intuition development', function () { return 'Developing your intuition'; }, ['How your intuition speaks to you', 'What is blocking it', 'A practice for this month']),
+        T('blueprint', '🗺️', 'Your soul’s blueprint', function () { return 'Your soul’s blueprint'; }, ['The lessons your soul set up', 'Your aligned path', 'Where you are on it now'])
+      ]},
+      { g: 'Your life', items: [
+        T('path', '🛤️', 'Path and next step', function () { return 'Your path and next aligned step'; }, ['Where you are on your path', 'What is opening next', 'Your aligned step for the month']),
+        T('purpose', '💼', 'Career, purpose and gifts', function () { return 'Your career, purpose and gifts'; }, ['What your soul came here to do', 'The gift you are underusing', 'Your next move in your work']),
+        T('money', '💰', 'Money and abundance', function () { return 'Money and abundance'; }, ['Your money energy right now', 'The block around receiving', 'How to open the flow']),
+        T('home', '🏡', 'Home, moves and big decisions', function () { return 'A big decision ahead'; }, ['The energy of each option', 'What is truly aligned', 'The timing around it'])
+      ]}
+    ];
+    var TOPICS = []; GROUPS.forEach(function (g) { TOPICS = TOPICS.concat(g.items); });
+    var HEALS = [
+      { id: 'cord', tier: 'Foundational', c: 6, label: 'Cord Cutting', d: 'Dissolving cords not aligned with your higher self', named: true },
+      { id: 'chakra', tier: 'Foundational', c: 6, label: 'Chakra Balancing', d: 'Clearing and rebalancing all 7 chakras' },
+      { id: 'kcord', tier: 'Foundational', c: 6, label: 'Karmic Cord Cutting', d: 'Cutting cords to karmic attachments in your aura', named: true },
+      { id: 'rel', tier: 'Deep', c: 9, label: 'Violet Flame Relationship Healing', d: 'Clearing karmic build-up between you and another soul', named: true },
+      { id: 'alch', tier: 'Deep', c: 9, label: 'Alchemical Marriage', d: 'Balancing your divine masculine and feminine' },
+      { id: 'karma', tier: 'Deep', c: 9, label: 'Karma Clearing', d: 'Clearing karma across your past and future lives' },
+      { id: 'screen', tier: 'Deep', c: 9, label: 'Past-Life Healing', d: 'Healing a specific past life affecting you now' },
+      { id: 'plchakra', tier: 'Deep', c: 9, label: 'Past-Life Chakra Healing', d: 'Clearing an issue where it is stored in your body' },
+      { id: 'book', tier: 'Deep', c: 9, label: 'Eternal Book of Records Healing', d: 'Healing past lives through your full Akashic record' },
+      { id: 'timeline', tier: 'Deep', c: 9, label: 'Timeline Healing', d: 'Healing a pattern across your whole timeline' },
+      { id: 'soulc', tier: 'Deep', c: 9, label: 'Soul Contract Clearing', d: 'Cancelling outdated vows and contracts' },
+      { id: 'release', tier: 'Signature', c: 24, label: 'Soul Contract Release', d: 'Relationship healing, karmic cord cutting, soul contract clearing and past-life healing in one session, to close a connection and call in your true union', named: true }
+    ];
+    var SEASON = [
+      ['12-month energy forecast, read in quarters', 12], ['What is blocking union, and when it shifts', 3], ['Past-life and karmic roots of the connection', 3], ['Your union timeline', 3], ['Higher self channelling', 3], ['Up to 4 of your own questions', 4], ['Alchemical union activation', 6], ['Karmic cord clearing', 6], ['Past-life chakra clearing', 6]
+    ];
+    var FOCUS = [
+      { id: 'talk', label: 'Coaching conversation', d: 'A little Q&A to start, then we talk through what is coming up and get you clear', a: ['A short check-in and your questions to start', 'Coaching on what is coming up for you', 'Your next aligned steps'] },
+      { id: 'plan', label: 'Make a plan', d: 'Map your next 30 to 90 days with clear, aligned steps', a: ['Where you are right now', 'Your goal and what is in the way', 'A clear plan for the next 30 to 90 days'] },
+      { id: 'inner', label: 'Guided inner child healing', d: 'A guided healing journey we do together, live', a: ['A short check-in', 'Guided inner child healing, live together', 'Integration and your next steps'] },
+      { id: 'heal', label: 'Live energy healing', d: 'I perform a healing live, then share the messages that came through', a: [] }
+    ];
+    var CHEALS = ['Energy Transmutation', 'Cord Cutting', 'Chakra Balancing', 'Karmic Cord Cutting', 'Violet Flame Relationship Healing', 'Alchemical Marriage', 'Karma Clearing', 'Past-Life Healing', 'Past-Life Chakra Healing', 'Timeline Healing', 'Soul Contract Clearing'];
+    var SEASONS = [
+      { id: 'lg', label: 'Lion\u2019s Gate Union Activation', when: 'August', price: 'CA$555 on its own', credits: 46 },
+      { id: 'totf', label: 'Trick or Twin Flame', when: 'October', price: 'CA$444 on its own', a: ['Your twin flame soul contract reading', 'A limited Halloween release'] },
+      { id: 'y27', label: '2027 Forecast', when: 'Coming in December', price: 'Price to come', a: ['Your 12-month forecast for 2027', 'A limited New Year release'] }
+    ];
+    function fresh() { return { mode: 'build', carry: 0, top: 0, topics: [], fc: 0, heals: [], qs: [], focus: 'talk', cheal: 'Energy Transmutation', season: 'lg' }; }
+    var S = fresh();
+    var $ = function (id) { return document.getElementById(id); };
+    var bld = $('bld');
+    function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+    function me() { return $('me').value.trim(); }
+    function poi() { return $('poi').value.trim(); }
+    function H(id) { return HEALS.filter(function (x) { return x.id === id; })[0]; }
+    function fcCost() { var f = FC.filter(function (x) { return x.d === S.fc; })[0]; return f ? f.c : 0; }
+    function total() { return BASE + S.carry + S.top; }
+    function used() { return S.topics.length * C.topic + fcCost() + S.heals.reduce(function (a, id) { return a + H(id).c; }, 0) + S.qs.length * C.q; }
+    function left() { return total() - used(); }
+
+    GROUPS.forEach(function (g) {
+      var wrap = document.createElement('div'); wrap.className = 'tgroup';
+      wrap.innerHTML = '<span class="gl">' + esc(g.g) + '</span>';
+      var row = document.createElement('div'); row.className = 'opts';
+      g.items.forEach(function (t) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'opt'; b.dataset.id = t.id; b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = t.icon + ' ' + esc(t.label) + ' <span class="cr">3 cr</span>';
+        b.addEventListener('click', function () { var i = S.topics.indexOf(t.id); if (i > -1) S.topics.splice(i, 1); else if (left() >= C.topic) S.topics.push(t.id); render(); });
+        row.appendChild(b);
+      });
+      wrap.appendChild(row); $('topics').appendChild(wrap);
+    });
+    FC.forEach(function (f) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.dataset.d = f.d; b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span>🔭 ' + f.l + ' <span class="cr">' + f.c + ' cr</span></span><small>Where the energy is heading</small>';
+      b.addEventListener('click', function () { if (S.fc === f.d) S.fc = 0; else if (left() + fcCost() >= f.c) S.fc = f.d; render(); });
+      $('fcs').appendChild(b);
+    });
+    TOPS.forEach(function (t) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt'; b.dataset.n = t.n; b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span>' + t.l + (t.p ? ' <span class="cr">' + t.p + '</span>' : '') + '</span><small>' + (t.d || 'Just my monthly credits') + '</small>';
+      b.addEventListener('click', function () { S.top = t.n; trim(); render(); });
+      $('tops').appendChild(b);
+    });
+    function trim() { while (left() < 0) { if (S.qs.length) S.qs.pop(); else if (S.heals.length) S.heals.pop(); else if (S.fc) S.fc = 0; else S.topics.pop(); } }
+    var lastTier = '';
+    HEALS.forEach(function (h) {
+      if (h.tier !== lastTier) { var l = document.createElement('span'); l.className = 'hgl'; l.style.gridColumn = '1 / -1'; l.textContent = h.tier === 'Signature' ? 'Signature · a full month' : h.tier + ' · ' + h.c + ' credits'; $('heals').appendChild(l); lastTier = h.tier; }
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'opt' + (h.tier === 'Signature' ? ' sig' : ''); b.dataset.id = h.id; b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span>' + esc(h.label) + ' <span class="cr">' + h.c + ' cr</span></span><small>' + esc(h.d) + '</small>';
+      b.addEventListener('click', function () { var i = S.heals.indexOf(h.id); if (i > -1) S.heals.splice(i, 1); else if (left() >= h.c) S.heals.push(h.id); render(); });
+      $('heals').appendChild(b);
+    });
+    FOCUS.forEach(function (f) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.dataset.id = f.id;
+      b.innerHTML = '<span>' + esc(f.label) + '</span><small>' + esc(f.d) + '</small>';
+      b.addEventListener('click', function () { S.focus = f.id; render(); });
+      $('cfocus').appendChild(b);
+    });
+    CHEALS.forEach(function (h) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.dataset.id = h; b.textContent = h;
+      b.addEventListener('click', function () { S.cheal = h; render(); });
+      $('cheals').appendChild(b);
+    });
+    SEASONS.forEach(function (x) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'opt'; b.dataset.id = x.id;
+      b.innerHTML = '<span>' + esc(x.label) + '</span><small>' + esc(x.when) + ' \u00b7 ' + esc(x.price) + ' \u00b7 included for members</small>';
+      b.addEventListener('click', function () { S.season = x.id; render(); });
+      $('seasons').appendChild(b);
+    });
+    $('cIntent').addEventListener('input', render);
+    $('carry').addEventListener('change', function (e) {
+      S.carry = +e.target.value; trim();
+      render();
+    });
+    $('me').addEventListener('input', render);
+    $('poi').addEventListener('input', render);
+    $('startBtn').addEventListener('click', function () { bld.classList.remove('locked'); render(); var f = document.querySelector('.mode'); if (f) f.focus({ preventScroll: true }); });
+    document.querySelectorAll('.mode').forEach(function (b) { b.addEventListener('click', function () { S.mode = b.dataset.mode; render(); }); });
+    function addQ() { var v = $('qIn').value.trim(); if (!v || S.qs.length >= QMAX || left() < C.q) return; S.qs.push(v); $('qIn').value = ''; render(); }
+    $('qAdd').addEventListener('click', addQ);
+    $('qIn').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); addQ(); } });
+    $('reset').addEventListener('click', function () { S = fresh(); $('carry').value = '0'; $('cIntent').value = ''; render(); });
+    $('copyBtn').addEventListener('click', function () {
+      var t = $('sumTxt').value;
+      function fallback() { $('sumTxt').focus(); $('sumTxt').select(); $('copyOk').textContent = 'Selected. Press copy on your keyboard.'; }
+      try { navigator.clipboard.writeText(t).then(function () { $('copyOk').textContent = 'Copied'; }, fallback); } catch (e) { fallback(); }
+    });
+
+    function bar(label, n, max, alt, shown) { return '<div class="vrow' + (alt ? ' alt' : '') + '"><span>' + label + '</span><span class="track"><span class="fill" style="display:block;width:' + Math.min(100, Math.round(n / max * 100)) + '%"></span></span><span class="num">' + (shown == null ? n : shown) + '</span></div>'; }
+    function dots(n, on) { var m = ''; for (var i = 0; i < n; i++) m += '<span class="dot' + (i < on ? ' on' : '') + (i >= BASE ? ' carry' : '') + '"></span>'; return m; }
+
+    var lastKeys = [];
+    function render() {
+      var locked = bld.classList.contains('locked');
+      bld.dataset.mode = S.mode;
+      document.querySelectorAll('.mode').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.mode === S.mode)); });
+      var l = left();
+      $('credLeft').textContent = l + ' of ' + total() + ' credits left';
+      $('topics').querySelectorAll('.opt').forEach(function (b) { var on = S.topics.indexOf(b.dataset.id) > -1; b.setAttribute('aria-pressed', String(on)); b.disabled = !on && l < C.topic; });
+      $('heals').querySelectorAll('.opt').forEach(function (b) { var on = S.heals.indexOf(b.dataset.id) > -1; b.setAttribute('aria-pressed', String(on)); b.disabled = !on && l < H(b.dataset.id).c; });
+      $('fcs').querySelectorAll('.opt').forEach(function (b) { var d = +b.dataset.d, on = S.fc === d, f = FC.filter(function (x) { return x.d === d; })[0]; b.setAttribute('aria-pressed', String(on)); b.disabled = !on && (l + fcCost()) < f.c; });
+      $('cfocus').querySelectorAll('.opt').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.id === S.focus)); });
+      $('cheals').querySelectorAll('.opt').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.id === S.cheal)); });
+      $('seasons').querySelectorAll('.opt').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.id === S.season)); });
+      $('cHealStep').hidden = S.focus !== 'heal';
+      $('tops').querySelectorAll('.opt').forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.n === S.top)); });
+      var tp = TOPS.filter(function (x) { return x.n === S.top; })[0];
+      var showTop = S.mode === 'build' && S.top > 0;
+      $('topStep').hidden = !showTop;
+      if (showTop) { var url = (window.REDEEM_LINKS || {})[tp.link]; $('topLink').href = url || '#addons'; $('topLink').textContent = 'buy ' + tp.l + ' (' + tp.p + ')'; if (url) { $('topLink').target = '_blank'; $('topLink').rel = 'noopener'; } else { $('topLink').removeAttribute('target'); } }
+      $('qCount').textContent = S.qs.length + ' of ' + QMAX;
+      $('qAdd').disabled = S.qs.length >= QMAX || l < C.q;
+
+      var m = me(), p = poi(), n = p ? esc(p) : '';
+      $('mapTitle').textContent = m ? m + '’s Session' : 'Your Session';
+      $('mapFor').textContent = p ? 'For ' + (m || 'you') + ' & ' + p : (m ? 'Just for you, ' + m : '');
+
+      var depth = 0, items = [], meter = '';
+      if (S.mode === 'build') {
+        depth = used(); meter = dots(total(), depth);
+        S.topics.forEach(function (id) { var t = TOPICS.filter(function (x) { return x.id === id; })[0]; items.push({ key: 't-' + id, k: 'Topic · 3 credits', v: esc(t.t(p)), a: t.a }); });
+        if (S.fc) { var f = FC.filter(function (x) { return x.d === S.fc; })[0]; items.push({ key: 'fc' + S.fc, k: 'Energy forecast · ' + f.c + ' credits', v: 'Your ' + f.l + ' energy forecast' + (n ? ' with ' + n : ''), a: ['Where the energy is heading', 'Timing and numbers from your guides', 'Your best move in the present'] }); }
+        S.heals.forEach(function (id) { var h = H(id); items.push({ key: 'h-' + id, cls: 'heal-s', k: (h.tier === 'Signature' ? 'Signature healing' : 'Energy healing') + ' · ' + h.c + ' credits', v: esc(h.label) + (n && h.named ? ' with ' + n : ''), a: [h.d, 'Your written healing summary and channelled advice'] }); });
+        if (S.qs.length) items.push({ key: 'qs', k: 'Your questions · ' + S.qs.length + (S.qs.length === 1 ? ' credit' : ' credits'), v: S.qs.length + (S.qs.length === 1 ? ' question' : ' questions') + ' woven in', qs: S.qs });
+        $('bigLbl').innerHTML = 'credits of depth<br>in your session';
+        $('vbars').innerHTML = '<span class="vt">Depth this month</span>' + bar('Your reading', depth, SEASONAL) + bar('Seasonal (included)', SEASONAL, SEASONAL, true);
+        $('mapFoot').textContent = locked ? 'Add your names, then start building.' : (l > 0 ? l + (l === 1 ? ' credit' : ' credits') + ' left to place this month.' : 'Every credit is placed. This is your session for the month.');
+      } else if (S.mode === 'spirit') {
+        depth = BASE; meter = dots(BASE, BASE);
+        items.push({ key: 'spirit', k: 'Open to Spirit · 24 credits', v: 'Whatever your guides most want you to know this month', a: ['The energy you are carrying right now', 'What is ready to shift' + (p ? ' with ' + p : ''), 'Your aligned step for the month'] });
+        $('bigLbl').innerHTML = 'credits, led<br>by Spirit';
+        $('vbars').innerHTML = '<span class="vt">Depth this month</span>' + bar('Open to Spirit', BASE, SEASONAL) + bar('Seasonal (included)', SEASONAL, SEASONAL, true);
+        $('mapFoot').textContent = 'Your full session, guided entirely by Spirit.';
+      } else if (S.mode === 'call') {
+        depth = BASE; meter = dots(BASE, BASE);
+        var fo = FOCUS.filter(function (x) { return x.id === S.focus; })[0];
+        var ag = fo.id === 'heal' ? ['A short check-in on what you want to heal', 'Live ' + S.cheal + (n && /Relationship|Cord/.test(S.cheal) ? ' with ' + n : '') + ', usually most or all of the call', 'The intuitive messages that came through, shared at the end'] : fo.a.slice();
+        var it = $('cIntent').value.trim();
+        items.push({ key: 'call-' + fo.id + (fo.id === 'heal' ? S.cheal : ''), k: 'Private coaching call \u00b7 60 minutes \u00b7 24 credits', v: esc(fo.label) + (fo.id !== 'heal' && p ? ', with ' + n + ' in mind' : ''), a: ag });
+        if (it) items.push({ key: 'intent', k: 'What you are bringing', v: '\u201c' + esc(it) + '\u201d' });
+        items.push({ key: 'rec', cls: 'heal-s', k: 'After the call', v: 'Recorded on Fathom', a: ['Full transcript and replay on your dashboard'] });
+        $('bigLbl').innerHTML = 'credits, swapped<br>for a live call';
+        $('vbars').innerHTML = '';
+        $('mapFoot').textContent = 'From month 2. Uses this month\u2019s 24 fresh credits; rolled-over credits stay saved for a reading. Coaching, not a live psychic reading.';
+      } else {
+        var se = SEASONS.filter(function (x) { return x.id === S.season; })[0];
+        meter = '<span class="incl">Included \u00b7 $0 extra</span>';
+        if (se.credits) {
+          depth = se.credits;
+          SEASON.forEach(function (x, i) { items.push({ key: 's' + i, cls: x[1] === 6 ? 'heal-s' : '', k: (x[1] === 6 ? 'Healing' : 'Reading') + ' \u00b7 ' + x[1] + ' credits', v: esc(x[0]) + (p && i === 2 ? ' with ' + n : '') }); });
+          $('bigLbl').innerHTML = 'credits of depth<br>vs 24 in a regular month';
+        } else {
+          depth = '\u2726';
+          items.push({ key: 'sx-' + se.id, k: esc(se.label) + ' \u00b7 ' + esc(se.when), v: 'Your full seasonal reading' + (p ? ' for you and ' + n : ''), a: se.a });
+          $('bigLbl').innerHTML = 'a limited<br>seasonal release';
+        }
+        $('mapTitle').textContent = se.label;
+        var pr = se.id === 'totf' ? 444 : 555;
+        $('vbars').innerHTML = '<span class="vt">What you pay for this reading</span>' + bar('On its own', pr, 555, true, se.id === 'y27' ? 'TBA' : '$' + pr) + bar('As a member', 0, 555, false, '$0') + '<span class="hint">It replaces that month\u2019s session, and it\u2019s a longer, deeper reading. Members get it at no extra cost.</span>';
+        $('mapFoot').textContent = 'Redeem within 60 days of the public launch closing. I\u2019ll give you about a month\u2019s heads-up.';
+      }
+      $('big').textContent = depth;
+      $('meter').innerHTML = meter;
+
+      var html = '';
+      items.forEach(function (it) {
+        var isNew = lastKeys.indexOf(it.key) === -1;
+        html += '<li class="sec ' + (it.cls || '') + '"' + (isNew ? '' : ' style="animation:none"') + '><div><div class="k">' + it.k + '</div><div class="v">' + it.v + '</div>';
+        if (it.a) html += '<ul>' + it.a.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+        if (it.qs) html += it.qs.map(function (q, i) { return '<div class="q">"' + esc(q) + '" <button type="button" class="mini" data-rm="' + i + '" style="padding:1px 8px;font-size:11px;margin-left:6px" aria-label="Remove question">×</button></div>'; }).join('');
+        html += '</div></li>';
+      });
+      if (!items.length) html = '<li class="empty">' + (locked ? 'Your session will appear here, piece by piece.' : 'Choose a topic, a forecast or a healing to begin.') + '</li>';
+      $('secs').innerHTML = html;
+      lastKeys = items.map(function (x) { return x.key; });
+      var mt = { build: 'Custom reading', call: 'Coaching call', seasonal: 'Seasonal reading: ' + SEASONS.filter(function (x) { return x.id === S.season; })[0].label, spirit: 'Open to Spirit' }[S.mode];
+      var L = ['SOUL PATH MEMBERSHIP: MY SESSION', 'Billing month: ' + new Date().toLocaleString('en-CA', { month: 'long', year: 'numeric' }), '', 'My name: ' + (m || '(not added)'), 'Their name: ' + (p || '(not added)'), 'Session type: ' + mt, ''];
+      items.forEach(function (x) { var d = document.createElement('div'); d.innerHTML = x.v; L.push('- ' + d.textContent + ' (' + x.k.replace(/<[^>]+>/g, '') + ')'); });
+      if (S.mode === 'build') { L.push('', 'Credits used: ' + used() + ' of ' + total(), '(24 fresh + ' + S.carry + ' rolled over' + (S.top ? ' + ' + S.top + ' top-up' : '') + ')'); if (S.top) L.push('Top-up purchased: ' + tp.l + ' (' + tp.p + ')'); }
+      var sumT = L.join('\n');
+      $('sumTxt').value = sumT;
+      $('mailBtn').href = 'mailto:luana@luanaspirits.com?subject=' + encodeURIComponent('MY SOUL PATH SESSION' + (m ? ' - ' + m : '')) + '&body=' + encodeURIComponent(sumT);
+      $('copyOk').textContent = '';
+      $('secs').querySelectorAll('[data-rm]').forEach(function (b) { b.addEventListener('click', function () { S.qs.splice(+b.dataset.rm, 1); render(); }); });
+    }
+    $('month').textContent = new Date().toLocaleString('en-CA', { month: 'long' });
+    render();
+  })();
+  </script>
+  <section id="addons">
+    <div class="head"><div class="eyebrow">Between sessions</div><h2>Extra time, <em>whenever you need it.</em></h2><p style="color:var(--soft)">Member rates. On top of your monthly session, never instead of it.</p></div>
+    <div class="compare">
+      <div class="box this"><span class="t">Extra 1:1 coaching call</span><span class="v">CA$222 · 60 min</span><span class="d">Private coaching on Google Meet, recorded on Fathom with a replay and transcript on your dashboard. Book as many as you need.</span><a class="btn" data-link="call" href="#">Book an extra call</a></div>
+      <div class="box"><span class="t">+3 credits</span><span class="v">CA$49</span><span class="d">One more topic in this month's session. About $16 a credit.</span><a class="btn ghost" data-link="top3" href="#">Add 3 credits</a></div>
+      <div class="box"><span class="t">+12 credits</span><span class="v">CA$177</span><span class="d">Half a month more depth, for a big month. About $15 a credit.</span><a class="btn ghost" data-link="top12" href="#">Add 12 credits</a></div>
+    </div>
+    <div class="note" style="margin-top:18px">
+      <span class="t">How add-ons work</span>
+      <p>Add-ons are for active members only. Top-up credits are used in the session you send them with, and they don't roll over. Extra calls are coaching, not live readings. Add-ons have no cash value and end with your membership. Please use the email on your membership at checkout.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="head"><div class="eyebrow">Your credits</div><h2>The simple rules.</h2></div>
+    <ol class="steps">
+      <li><div class="v">24 fresh credits arrive on the first day of each billing cycle</div></li>
+      <li><div class="v">Redeem them in one intentional session within your billing month</div></li>
+      <li><div class="v">A fully unused month rolls over up to 15 credits, which expire after 90 days</div></li>
+      <li><div class="v">Rolled-over credits can be used in any reading. A coaching call swap uses that month's 24 fresh credits</div></li>
+      <li><div class="v">Seasonal readings can be redeemed as your month's session within 60 days of a launch closing</div></li>
+      <li><div class="v">Your dashboard shows your billing date and your credits. Questions? Bring them to Monday's group call, or email me</div></li>
+    </ol>
+  </section>
+  <section style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:0">
+    <p style="color:var(--soft)">Looking for your readings, replays and next steps?</p>
+    <span class="hint">They live on your private dashboard. Can't find your link? Email me.</span>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="sig">With love, Luana Spirits 💜</div>
+  <div class="role">Psychic Medium · Akashic Records Reader · Energy Healer</div>
+  <div class="links">
+    <a href="https://luanaspirits.com">luanaspirits.com</a>
+    <a href="https://readings.luanaspirits.com/">Readings</a>
+    <a href="https://www.skool.com/union">Skool</a>
+    <a href="https://www.tiktok.com/@luanaspirits" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://www.instagram.com/luanaspirits" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@luanaspirits/" target="_blank" rel="noopener">YouTube</a>
+  </div>
+  <div>Questions? <span class="email allow-select">luana@luanaspirits.com</span></div>
+  <nav class="legal" aria-label="Legal">
+    <a href="https://luanaspirits.com/privacy/">Privacy Policy</a>
+    <a href="https://luanaspirits.com/terms/">Terms of Service</a>
+  </nav>
+  <p class="fine">Readings and energy healing are for spiritual guidance, personal growth and entertainment purposes only, and are not a substitute for therapy or medical, psychological, legal or financial advice. No outcome is guaranteed.</p>
+  <p class="fine">&copy; 2026 Luana Spirits Consulting. All rights reserved.</p>
+</footer>
+
+<style>
+  /* Content protection: blocks casual selecting, copying and image saving. Form fields stay usable. */
+  body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, .allow-select { -webkit-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+</style>
+<script>
+(function () {
+  var LINKS = window.REDEEM_LINKS || {}, missing = 0;
+  document.querySelectorAll('[data-link]').forEach(function (a) {
+    var u = LINKS[a.dataset.link];
+    if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener'; }
+    else { missing++; a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.style.opacity = '.55'; a.style.cursor = 'not-allowed'; a.insertAdjacentHTML('afterend', '<span class="ph" style="align-self:flex-start">Stan link coming</span>'); }
+  });
+  var wip = document.getElementById('wip'); if (wip && !missing) wip.remove();
+
+  var bp = ['MY UNION BLUEPRINT (Soul Path Membership, month 1)', '', 'My name:', 'Their name (or leave blank):', '', 'Up to 5 focus areas (or write "open to Spirit"):', '1.', '2.', '3.', '4.', '5.', '', 'Up to 4 of my own questions:', '1.', '2.', '3.', '4.', '', 'Anything you would love me to know:'].join('\n');
+  document.getElementById('bpBtn').href = 'mailto:luana@luanaspirits.com?subject=' + encodeURIComponent('MY UNION BLUEPRINT') + '&body=' + encodeURIComponent(bp);
+
+  function editable(el) { return el && el.closest && el.closest('input, textarea, .allow-select'); }
+  document.addEventListener('contextmenu', function (e) { if (!editable(e.target)) e.preventDefault(); });
+  ['copy', 'cut'].forEach(function (t) { document.addEventListener(t, function (e) { if (!editable(e.target)) e.preventDefault(); }); });
+
+  var s = document.getElementById('stars');
+  for (var i = 0; i < 70; i++) {
+    var d = document.createElement('div'); d.className = 'star';
+    var z = Math.random() * 2 + 1;
+    d.style.cssText = 'width:' + z + 'px;height:' + z + 'px;left:' + Math.random() * 100 + '%;top:' + Math.random() * 100 + '%;animation-delay:' + Math.random() * 4 + 's';
+    if (Math.random() < .2) d.style.background = '#e3c27f';
+    s.appendChild(d);
+  }
+})();
+</script>
+</body>
+</html>
